@@ -31,7 +31,7 @@ export default {
   methods: {
     fetchData(){
       var _this=this;
-      this.$http.get("../../data/data.json").then((res)=>{
+      this.$http.get("http://localhost:8080/src/data.json").then((res)=>{
           console.log(res)
       }).catch(function(err){
         console.log(err);
