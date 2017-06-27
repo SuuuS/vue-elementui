@@ -3,9 +3,10 @@
   <el-card class="box-card">
     <div class="list">
       <ul>
-        <!-- <li v-for="list in lists">{{list.text}}</li> -->
-        <!-- <li v-for="article in articles">{{article.title}}</li> -->
+        <li v-for="a in text">{{a.text}}</li>
       </ul>
+      <hr>
+      <p>{{list.description}}</p>
     </div>
   </el-card>
 </template>
@@ -15,42 +16,40 @@ export default {
   name: 'purchase',
   data () {
     return {
-      // lists: [
-      //   {text: '全部'},
-      //   {text: '股票型'},
-      //   {text: '固定收益'},
-      //   {text: '量化产品'},
-      //   {text: '新三板产品'},
-      //   {text: '混合型'},
-      //   {text: 'FOF'},
-      //   {text: '股票投资'},
-      //   {text: '股票定增'}
-      // ]
+    text : '',
+    list : ''
     }
   },
   methods: {
     fetchData(){
-      var _this=this;
-      this.$http.get("http://localhost:8080/src/data.json").then((res)=>{
-          console.log(res)
+      // this.$http.get("http://localhost:8080/src/data.json").then((res)=>{ // 方法一
+      //   console.log(res)
+      //   this.list = res.data.seller
+      //   this.text = res.data.ratings
+      // }).catch(function(err){
+      //   console.log(err);
+      // });
+      this.axios.get("http://localhost:8080/src/data.json").then((res) => { // 方法二
+        this.list = res.data.seller
+        this.text = res.data.ratings
+        console.log(res.data)
       }).catch(function(err){
         console.log(err);
       });
     }
   },
   mounted() {
-    //页面加载时执行
+    // 页面加载时执行
     this.fetchData();
   }
-
 }
 </script>
 
 <style lang="css">
-.list li {
+/*.list li {
   list-style: none;
   float: left;
   margin: 0 10px;
   cursor: pointer;
-}
+}*/
 </style>

@@ -3,11 +3,11 @@
     <el-menu default-active="2" router theme="dark" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
       <el-menu-item index="/"><i class="el-icon-menu"></i>首页</el-menu-item>
       <el-submenu index="1">
-        <template slot="title"><i class="el-icon-message"></i>快速通道</template>
+        <template slot="title"><i class="icon-myicon5"></i>快速通道</template>
 
         <el-menu-item index="/purchase">购买</el-menu-item>
         <el-menu-item index="/redemption">赎回</el-menu-item>
-        <el-menu-item index="/riskAssessment">风险评估</el-menu-item>
+        <el-menu-item index="/riskAssessment">卡片</el-menu-item>
         <el-menu-item index="/assetsCertification">资产证明</el-menu-item>
         <el-menu-item index="/help">帮助中心</el-menu-item>
         <el-menu-item index="/personalInformation">个人信息</el-menu-item>
@@ -37,4 +37,5 @@ export default {
 </script>
 
 <style lang="css">
+i {margin-right:10px}
 </style>
